@@ -6,7 +6,7 @@ module Api
 
       def index
         blessings = Blessing.all
-        render json: blessings.to_json(include: [:user, :comments, :likes])
+        render json: blessings.to_json(include: %i[user comments likes])
       end
 
       def show

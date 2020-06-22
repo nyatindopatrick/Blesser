@@ -7,7 +7,7 @@ module Api
         user = User.new(user_params)
         if user.save
           session[:user_id] = user.id
-          render json: UserSerializer.new(user).serialized_json
+          render json: user.to_json
         else
           render json: { error: users.errors.messages }, status: 422
         end
