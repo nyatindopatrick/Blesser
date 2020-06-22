@@ -11,7 +11,7 @@ module Api
 
       def show
         blessing = Blessing.find(params[:id])
-        render json: BlessingSerializer.new(blessing, options).serialized_json
+        render json: blessing.to_json(include: %i[user comments likes])
       end
 
       def create
